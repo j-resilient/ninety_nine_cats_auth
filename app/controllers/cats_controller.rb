@@ -1,6 +1,7 @@
 class CatsController < ApplicationController
   def index
     @cats = Cat.all
+    @user = User.find_by(session_token: session[:session_token]) unless session[:session_token].nil?
     render :index
   end
 

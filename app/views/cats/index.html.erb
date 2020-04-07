@@ -1,5 +1,7 @@
 <h1>Cats upon cats!</h1>
-
+<% unless @user.nil? %>
+  <h2> <%= "Hello, " + @user.username %> </h2>
+<% end %>
 <ul>
   <% @cats.each do |cat| %>
     <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
