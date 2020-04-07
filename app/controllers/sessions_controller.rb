@@ -10,14 +10,18 @@ class SessionsController < ApplicationController
         )
 
         if user.nil?
-            # add error
             flash.now[:errors] = "Incorrect username or password."
             render :new
         else
-            # set cookie, redirect to /cats
             token = user.reset_session_token!
             session[:session_token] = token
             redirect_to cats_url
         end
+    end
+
+    def destroy
+        current_user.reset_session_token! unless current_user.nil?
+        session[:session_token] = nil
+        redirect_to new_session_url
     end
 end
