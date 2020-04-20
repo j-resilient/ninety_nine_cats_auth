@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+  before_action :require_login, only: [:update, :edit]
+
   def index
     @cats = Cat.all
     render :index
@@ -37,6 +39,14 @@ class CatsController < ApplicationController
     else
       flash.now[:errors] = @cat.errors.full_messages
       render :edit
+    end
+  end
+
+  def require_login
+    # redirect_to new_session_url if current_user.nil?
+    if current_user.cats.where(id: params[:id]).empty?
+      flash.now[:errors] = "You cannot edit a cat that you don't own."
+      redirect_to cats_url
     end
   end
 
