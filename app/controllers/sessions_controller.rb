@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
     def new
-        render :new
+        if session[:session_token].nil?
+            render :new
+        else
+            flash.now[:errors] = "You are already logged in!"
+            redirect_to cats_url
+        end
     end
 
     def create
