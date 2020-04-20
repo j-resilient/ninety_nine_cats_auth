@@ -17,6 +17,11 @@ class Cat < ApplicationRecord
     class_name: :CatRentalRequest,
     dependent: :destroy
 
+  belongs_to :owner,
+    class_name: :User,
+    foreign_key: :owner_id,
+    primary_key: :id
+
   def age
     time_ago_in_words(birth_date)
   end
