@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
+    before_action :redirect_if_already_signed_in
+
+    def redirect_if_already_signed_in
+        redirect_to cats_url unless session[:session_token].nil?
+    end
+
     def new
-        if session[:session_token].nil?
-            render :new
-        else
-            flash.now[:errors] = "You are already logged in!"
-            redirect_to cats_url
-        end
+        render :new
     end
 
     def create
