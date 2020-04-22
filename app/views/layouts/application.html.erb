@@ -3,13 +3,22 @@
   <head>
     <title>NinetyNineCats</title>
     <%= csrf_meta_tags %>
-    <%= render 'shared/errors' %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet"> 
+
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+    <header class="flex">
+      <h1 class="logo"> <%= link_to '99 Cats', cats_url %> </h1>
+      <div>
+        <!-- sign in/out buttons here -->
+        <%= link_to 'Sign in', new_session_url %>
+        <%= link_to 'Sign up',  new_user_url %>
+      </div>
+    </header>
+    <%= render 'shared/errors' %>
     <%= yield %>
   </body>
 </html>
