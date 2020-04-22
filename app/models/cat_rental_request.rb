@@ -151,4 +151,9 @@ class CatRentalRequest < ApplicationRecord
     errors[:start_date] << 'must come before end date'
     errors[:end_date] << 'must come after start date'
   end
+
+  belongs_to :requester,
+    class_name: :user,
+    foreign_key: :requester_id,
+    primary_key: :id
 end
