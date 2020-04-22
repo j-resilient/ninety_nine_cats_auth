@@ -10,6 +10,11 @@ class User < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :Cat
 
+    has_many :rental_requests,
+        primary_key: :id,
+        foreign_key: :requester_id,
+        class_name: :CatRentalRequest
+
     def reset_session_token!
         self.session_token = self.class.generate_session_token
         self.save!
