@@ -1,9 +1,9 @@
 <h1>Cats upon cats!</h1>
-<%= render 'shared/errors' %>
 
 <% unless current_user.nil? %>
   <h2> <%= "Hello, " + current_user.username %> </h2>
 <% end %>
+<%= render 'shared/errors' %>
 
 <% unless current_user.nil? %>
   <form action="<%= session_url %>" method="POST">
