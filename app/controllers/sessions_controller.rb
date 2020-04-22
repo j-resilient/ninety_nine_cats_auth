@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    before_action :redirect_if_already_signed_in
+    before_action :redirect_if_already_signed_in, except: [:destroy]
 
     def redirect_if_already_signed_in
         redirect_to cats_url unless session[:session_token].nil?
