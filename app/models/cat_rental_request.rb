@@ -9,6 +9,11 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
+  belongs_to :requester,
+    class_name: :User,
+    foreign_key: :requester_id,
+    primary_key: :id
+
   after_initialize :assign_pending_status
 
   def approve!
@@ -151,9 +156,4 @@ class CatRentalRequest < ApplicationRecord
     errors[:start_date] << 'must come before end date'
     errors[:end_date] << 'must come after start date'
   end
-
-  belongs_to :requester,
-    class_name: :User,
-    foreign_key: :requester_id,
-    primary_key: :id
 end
