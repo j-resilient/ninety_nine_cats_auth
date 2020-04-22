@@ -1,4 +1,6 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :require_login, only: [:approve, :deny]
+
   def approve
     current_cat_rental_request.approve!
     redirect_to cat_url(current_cat)
@@ -36,5 +38,12 @@ class CatRentalRequestsController < ApplicationController
 
   def cat_rental_request_params
     params.require(:cat_rental_request).permit(:cat_id, :end_date, :start_date, :status)
+  end
+
+  def require_login
+    if current_user.nil? || current_user.cats.where(id: current_cat.id).empty?
+      flash.now[:errors] = "You cannot approve or deny for a cat that you don't own."
+      redirect_to cat_url(current_cat)
+    end
   end
 end
