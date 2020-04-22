@@ -153,7 +153,7 @@ class CatRentalRequest < ApplicationRecord
   end
 
   belongs_to :requester,
-    class_name: :user,
+    class_name: :User,
     foreign_key: :requester_id,
     primary_key: :id
 end
