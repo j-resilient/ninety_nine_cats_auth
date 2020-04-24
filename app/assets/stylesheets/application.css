@@ -41,9 +41,13 @@ header {
     background-color: #000066;
     justify-content: space-between;
     line-height: 60px;
+    padding: 0 20px;
 }
 .logo {
     font-size: 60px;
     height: 60px;
+}
+.add-margin-right {
+    margin-right: 20px;
 }
 
