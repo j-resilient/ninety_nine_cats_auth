@@ -31,23 +31,32 @@ body {
     font-family: 'Amatic SC', cursive;
     color: yellow;
     font-size: 30px;
+    width: 100%;
 }
 .flex {
     display: flex;
+    justify-content: space-between;
+}
+nav {
+    background-color: #000066;
+    line-height: 60px;
+    padding: 0 20px;
+}
+h1 {
+    font-size: 60px;
+    height: 60px;
 }
 
 /* Header Bar */
 header {
-    background-color: #000066;
-    justify-content: space-between;
-    line-height: 60px;
-    padding: 0 20px;
-}
-.logo {
-    font-size: 60px;
-    height: 60px;
+    width: 100%;
 }
 .add-margin-right {
     margin-right: 20px;
 }
-
+/* Index Page */
+.index-main {
+    width: 920px;
+    background-color: #009999;
+    margin: 50px auto;
+}

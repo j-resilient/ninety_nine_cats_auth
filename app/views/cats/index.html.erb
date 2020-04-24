@@ -1,22 +1,27 @@
-<h1>Cats upon cats!</h1>
+<main class="index-main">
+  <nav class="flex">
+    <h1>All of the cats in the world</h1>
+    <%= link_to(new_cat_url) do %>
+      <%= "Add cat" %> <i class="fa fa-plus"></i>
+    <% end %>
+  </nav>
 
-<% unless current_user.nil? %>
-  <h2> <%= "Hello, " + current_user.username %> </h2>
-<% end %>
-<%= render 'shared/errors' %>
-
-<% unless current_user.nil? %>
-  <form action="<%= session_url %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" value="delete" name="_method" />
-    <input type="submit" value="logout">
-  </form>
-<% end %>
-
-<ul>
-  <% @cats.each do |cat| %>
-    <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
+  <% unless current_user.nil? %>
+    <h2> <%= "Hello, " + current_user.username %> </h2>
   <% end %>
-</ul>
+  <%= render 'shared/errors' %>
 
-<a href="<%= new_cat_url %>">Create cat</a>
+  <% unless current_user.nil? %>
+    <form action="<%= session_url %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" value="delete" name="_method" />
+      <input type="submit" value="logout">
+    </form>
+  <% end %>
+
+  <ul>
+    <% @cats.each do |cat| %>
+      <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
+    <% end %>
+  </ul>
+</main>
