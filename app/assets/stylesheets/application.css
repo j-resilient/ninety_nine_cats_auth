@@ -14,7 +14,7 @@
  *= require_self
  */
 
-  html, body, main, section, article, h1, h2, p, a, header {
+  html, body, main, section, article, h1, h2, p, a, header, input {
     margin: 0;
     border: 0;
     padding: 0;
@@ -32,13 +32,20 @@ body {
     color: yellow;
     font-size: 30px;
     width: 100%;
+
+    --dark-blue: #000066;
+    --light-blue: #009999;
 }
 .flex {
     display: flex;
     justify-content: space-between;
 }
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
 nav {
-    background-color: #000066;
+    background-color: var(--dark-blue);
     line-height: 60px;
     padding: 0 20px;
 }
@@ -51,12 +58,31 @@ h1 {
 header {
     width: 100%;
 }
-.add-margin-right {
-    margin-right: 20px;
+.add-margin-left {
+    margin-left: 20px;
+}
+input {
+    text-decoration: underline;
+    font-weight: bold;
+}
+form {
+    display: inline;
 }
 /* Index Page */
 .index-main {
     width: 920px;
-    background-color: #009999;
+    background-color: var(--light-blue);
     margin: 50px auto;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.cat-frame {
+    background-color: var(--dark-blue);
+    padding: 20px;
+    width: 235px;
+    height: auto;
+    margin: 20px 0;
+    justify-self: center;
 }
