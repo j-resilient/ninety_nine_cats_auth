@@ -3,20 +3,20 @@
   <td><%= req.start_date %></td>
   <td><%= req.end_date %></td>
   <td>
-    <% if req.pending? && current_user && current_user.cats.where(id: @cat.id) %>
+    <% if req.pending? && current_user && current_user.owns_cat?(@cat) %>
         <form action="<%= approve_cat_rental_request_url(req) %>" method="post">
           <input
             type="hidden"
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
-          <input type="submit" value="Approve">
+          <input type="submit" value="Approve" class="click">
         </form>
         <form action="<%= deny_cat_rental_request_url(req) %>" method="post">
           <input
             type="hidden"
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
-          <input type="submit" value="Deny">
+          <input type="submit" value="Deny" class="click">
         </form>
     <% else %>
       <%= req.status %>

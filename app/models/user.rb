@@ -45,4 +45,9 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
     end
+
+    # checks if the logged in user owns the given cat
+    def owns_cat?(cat)
+        cats.where(id: cat.id)
+    end
 end

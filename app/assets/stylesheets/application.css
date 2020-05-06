@@ -141,3 +141,7 @@ th {
 td {
     color: black;
 }
+/* Other */
+.click {
+    cursor: pointer;
+}
