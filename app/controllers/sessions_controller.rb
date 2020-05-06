@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         )
 
         if user.nil?
-            flash.now[:errors] = "Incorrect username or password."
+            flash.now[:errors] = ["Incorrect username or password."]
             render :new
         else
             user.reset_session_token!

@@ -44,7 +44,7 @@ class CatsController < ApplicationController
 
   def require_login
     if current_user.nil? || current_user.cats.where(id: params[:id]).empty?
-      flash.now[:errors] = "You cannot edit a cat that you don't own."
+      flash.now[:errors] = ["You cannot edit a cat that you don't own."]
       redirect_to cat_url
     end
   end
