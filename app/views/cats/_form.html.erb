@@ -1,8 +1,8 @@
 <% action = (cat.persisted? ? cat_url(cat) : cats_url) %>
 <% method = (cat.persisted? ? :patch : :post) %>
-
 <form action="<%= action %>" method="post">
   <input type="hidden" name="_method" value="<%= method %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label for="cat_name">Name</label>
   <input
@@ -10,6 +10,7 @@
     name="cat[name]"
     id="cat_name"
     value="<%= cat.name %>">
+    <br>
 
   <label for="cat_birth_date">Birth date</label>
   <input
@@ -21,7 +22,7 @@
 
   <label for="cat_color">Color</label>
   <select name="cat[color]" id="cat_color">
-  <option disabled selected>-- select a color --</option>
+  <option disabled selected> </option>
     <% Cat::CAT_COLORS.each do |color| %>
       <option
         <%= cat.color == color ? "selected" : "" %>
@@ -49,10 +50,12 @@
   <br>
 
   <label>
-    Description
+    Description <br>
     <textarea name="cat[description]"><%= cat.description %></textarea>
   </label>
+  <br><br>
 
   <% submit_text = (cat.persisted? ? 'Update' : 'Create') + ' cat!' %>
   <input type="submit" value="<%= submit_text %>">
 </form>
+

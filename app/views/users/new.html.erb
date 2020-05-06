@@ -1,10 +1,12 @@
-<h1>New User</h1>
-
-<%= render 'shared/errors' %>
-<form action="<%= users_url %>" method="post">
-    <label for="username">User Name</label>
-    <input type="text" name="user[username]" id="username"><br>
-    <label for="password">Password</label>
-    <input type="text" name="user[password]" id="password"><br>
-    <input type="submit" value="Submit Query">
-</form>
+<main class="form-main">
+    <h1>New User</h1>
+    <br>
+    <%= render 'shared/errors' %>
+    <form action="<%= users_url %>" method="post">
+        <label for="username">User Name</label>
+        <input type="text" name="user[username]" id="username"><br>
+        <label for="password">Password</label>
+        <input type="text" name="user[password]" id="password"><br>
+        <input type="submit" value="Submit Query">
+    </form>
+</main>

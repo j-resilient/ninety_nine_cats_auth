@@ -24,7 +24,7 @@
             <form action="<%= session_url %>" method="POST" class="add-margin-left">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <input type="hidden" value="delete" name="_method" />
-              <input type="submit" value="logout">
+              <input type="submit" value="logout" class="logout">
             </form>
           <% end %>
         </div>
