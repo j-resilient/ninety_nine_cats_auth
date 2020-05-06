@@ -1,8 +1,10 @@
 <main class="index-main">
   <nav class="flex">
     <h1>All of the cats in the world</h1>
-    <%= link_to(new_cat_url) do %>
-      <%= "Add cat" %> <i class="fa fa-plus"></i>
+    <% if current_user %>
+      <%= link_to(new_cat_url) do %>
+        <%= "Add cat" %> <i class="fa fa-plus"></i>
+      <% end %>
     <% end %>
   </nav>
 
