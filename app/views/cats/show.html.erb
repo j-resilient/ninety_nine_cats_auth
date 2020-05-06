@@ -14,7 +14,9 @@
     <% end %>
   </table>
 
-  <a href="<%= edit_cat_url(@cat) %>">Edit <%= @cat.name %></a>
+  <% if current_user && current_user.id == @cat.owner_id %>
+    <a href="<%= edit_cat_url(@cat) %>">Edit <%= @cat.name %></a>
+  <% end %>
   <br><br><br>
 
   <h1>Rental Requests</h1>
